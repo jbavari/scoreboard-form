@@ -7,8 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "watch": "babel --presets es2015,react --watch src --out-dir public/scripts",
-    "clean": "rm -rf www && mkdir ./www",
-    "react": "npm run clean && cp ./app/react/index.html ./www && babel --presets es2015,react --watch app/react/components --out-dir www/scripts",
+    "clean": "rm -rf www",
+    "react-old": "npm run clean && cp ./app/react/index.html ./www && babel --presets es2015,react --watch app/react/components --out-dir www/scripts",
+    "react": "npm run clean && npm run setup-www && cp ./app/react/index.html ./www && npm run build-dev",
+    "setup-www": "mkdir www && mkdir www/scripts",
     "build-dev": "browserify -t [ babelify --presets [ es2015 react ] ] -e app/react/browser/bootstrap.jsx -o www/scripts/bundle.dev.js --debug",
     "build-min": "browserify -e app/browser/bootstrap.jsx -t reactify -g uglifyify -o public/scripts/bundle.min.js",
     "build-tdd": "browserify -e test/spec/suite.js -t [ rewireify --ignore test/**,node_modules/** ] -t reactify -o test/spec/bundle.js --debug"
