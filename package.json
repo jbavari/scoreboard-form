@@ -10,6 +10,8 @@
     "clean": "rm -rf www",
     "react-old": "npm run clean && cp ./app/react/index.html ./www && babel --presets es2015,react --watch app/react/components --out-dir www/scripts",
     "react": "npm run clean && npm run setup-www && cp ./app/react/index.html ./www && npm run build-dev",
+    "angular2": "npm run clean && npm run setup-www && npm run webpack && cp ./app/angular2/index.html ./www",
+    "webpack": "webpack --verbose",
     "setup-www": "mkdir www && mkdir www/scripts",
     "build-dev": "browserify -t [ babelify --presets [ es2015 react ] ] -e app/react/browser/bootstrap.jsx -o www/scripts/bundle.dev.js --debug",
     "build-min": "browserify -e app/browser/bootstrap.jsx -t reactify -g uglifyify -o public/scripts/bundle.min.js",
@@ -34,8 +36,11 @@
     "zone.js": "^0.5.8"
   },
   "devDependencies": {
+    "awesome-typescript-loader": "^0.15.9",
     "babelify": "^7.2.0",
     "browserify": "^12.0.1",
-    "reactify": "^1.1.1"
+    "reactify": "^1.1.1",
+    "typescript": "^1.7.5",
+    "webpack": "^1.12.9"
   }
 }
