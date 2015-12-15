@@ -6,7 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "watch": "babel --presets es2015,react --watch src --out-dir public/scripts"
+    "watch": "babel --presets es2015,react --watch src --out-dir public/scripts",
+    "clean": "rm -rf www && mkdir ./www",
+    "react": "npm run clean && cp ./app/react/index.html ./www && babel --presets es2015,react --watch app/react/components --out-dir www/scripts",
+    "build-dev": "browserify -t [ babelify --presets [ es2015 react ] ] -e app/react/browser/bootstrap.jsx -o www/scripts/bundle.dev.js --debug",
+    "build-min": "browserify -e app/browser/bootstrap.jsx -t reactify -g uglifyify -o public/scripts/bundle.min.js",
+    "build-tdd": "browserify -e test/spec/suite.js -t [ rewireify --ignore test/**,node_modules/** ] -t reactify -o test/spec/bundle.js --debug"
   },
   "keywords": [],
   "author": "",
@@ -14,13 +19,21 @@
   "dependencies": {
     "angular": "^1.4.8",
     "angular2": "^2.0.0-alpha.53",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
     "body-parser": "^1.14.1",
     "es6-promise": "^3.0.2",
     "es6-shim": "^0.33.13",
     "express": "^4.13.3",
     "react": "^0.14.3",
+    "react-dom": "^0.14.3",
     "reflect-metadata": "^0.1.2",
     "rxjs": "^5.0.0-alpha.14",
     "zone.js": "^0.5.8"
+  },
+  "devDependencies": {
+    "babelify": "^7.2.0",
+    "browserify": "^12.0.1",
+    "reactify": "^1.1.1"
   }
 }
