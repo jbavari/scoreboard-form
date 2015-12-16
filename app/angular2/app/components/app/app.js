@@ -1,13 +1,13 @@
 import {Component, View} from 'angular2/core';
+import {Scoreboard} from '../scoreboard/scoreboard';
 
 @Component({
-  selector: 'app'
+  directives: [Scoreboard],
+  selector: 'app',
+  template: `<scoreboard></scoreboard>`
   // templateUrl: './components/app/app.html'
   // styleUrls: ['./components/app/app.css'],
   // encapsulation: ViewEncapsulation.None,
-})
-@View({
-  template: `<div>Hello!</div>`
 })
 export class ScoreboardApp {
   constructor() {
