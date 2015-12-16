@@ -8,6 +8,7 @@
     "start": "node server.js",
     "watch": "babel --presets es2015,react --watch src --out-dir public/scripts",
     "clean": "rm -rf www",
+    "copy-bootstrap": "cp -rf ./node_modules/bootstrap/dist/css/bootstrap.css ./www/css/",
     "react-old": "npm run clean && cp ./app/react/index.html ./www && babel --presets es2015,react --watch app/react/components --out-dir www/scripts",
     "react": "npm run clean && npm run setup-www && cp ./app/react/index.html ./www && npm run build-dev",
     "angular2": "npm run clean && npm run setup-www && cp ./app/angular2/index.html ./www && npm run webpack",
