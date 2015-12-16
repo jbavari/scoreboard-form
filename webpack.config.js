@@ -23,7 +23,7 @@ module.exports = {
     // 'es6-shim/es6-shim.min',
     'reflect-metadata',
     // 'web-animations.min',
-    // 'zone.js',
+    'zone.js',
     // './f.js'
     path.join(__dirname, 'app', 'angular2', 'app', 'bootstrap.js')
   ],
