@@ -10,9 +10,6 @@ var paths = {
     buildJSDir: 'js',
     buildCSSDir: 'css',
     buildFontsDir: 'fonts',
-    ionicDir: 'node_modules/ionic-framework',
-    ionicSassDir: 'node_modules/ionic-framework',
-    ionicFontFiles: 'fonts/**/*.ttf',
     wwwDir: 'app'
   };
 
@@ -28,8 +25,8 @@ module.exports = {
     path.join(__dirname, 'app', 'angular2', 'app', 'bootstrap.js')
   ],
   output: {
-    path: path.join(__dirname, 'www', 'scripts'),
-    filename: 'build.js',
+    path: path.join(__dirname, 'app', 'angular2', 'build'),
+    filename: 'angular2.build.js',
     // publicPath: path.join(paths.buildDir, paths.buildJSDir),
     pathinfo: false // show module paths in the bundle, handy for debugging
   },
