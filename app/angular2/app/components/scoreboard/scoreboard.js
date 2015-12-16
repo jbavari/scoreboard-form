@@ -5,25 +5,39 @@ import {Team} from '../team/team';
   directives: [Team],
   selector: 'scoreboard',
   template: `
-    <div class="scoreboard">
-      <form (ngSubmit)="submitScore()">
-        Home Team: <team (updateTeam)="updateHomeTeam($event)" home="true" update={this.updateTeam}></team>
-        Visitor Team: <team (updateTeam)="updateVisitorTeam($event)"></team>
+    <form (ngSubmit)="submitScore()">
+      <div class="scoreboard row">
+        <div class="col-md-6">
+          Home Team: <team (updateTeam)="updateHomeTeam($event)" home="true" update={this.updateTeam}></team>
+        </div>
+        <div class="col-md-6">
+          Visitor Team: <team (updateTeam)="updateVisitorTeam($event)"></team>
+        </div>
+      </div>
+      <div class="row">
         <button type="submit">Submit</button>
-      </form>
-    </div>
+      </div>
+      <div *ngIf="submitted">
+        JSON payload: {{jsonPayload}}
+      </div>
+    </form>  
   `
 })
 export class Scoreboard {
   homeTeam: Team = new Team();
   visitorTeam: Team = new Team();
 
+  submitted: boolean = false;
+  jsonPayload: string = null;
+
   constuctor() {
   }
 
   submitScore() {
-    var jsonPayload = { homeTeam: this.homeTeam.toJson(), visitorTeam: this.visitorTeam.toJson() };
-    console.log('Json payload: ', JSON.stringify(jsonPayload));
+    console.log('subimtScore');
+    this.submitted = true;
+    this.jsonPayload = JSON.stringify({ homeTeam: this.homeTeam.toJson(), visitorTeam: this.visitorTeam.toJson()});
+    // console.log('Json payload: ', JSON.stringify(jsonPayload));
   }
 
   updateHomeTeam(team: Team) {

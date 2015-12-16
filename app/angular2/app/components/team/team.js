@@ -13,9 +13,9 @@ import {NgFor, NgIf, NgModel} from 'angular2/common';
       <button type="submit" (click)="setName()">Set name</button>
     </div>
     <div *ngIf="name != ''">
-      {{name}}
-      <button (click)="touchdown()">Touchdown</button>
-      <button (click)="fieldGoal()">Field Goal</button>
+      <h2>{{name}}</h2>
+      <button (click)="touchdown($event)">Touchdown</button>
+      <button (click)="fieldGoal($event)">Field Goal</button>
       Score: {{score}}
     </div>
     `
@@ -29,11 +29,13 @@ export class Team {
     this.score = 0;
   }
 
-  fieldGoal() {
+  fieldGoal(e) {
+    e.preventDefault();
     this.score += 3;
   }
 
   touchdown(e) {
+    e.preventDefault();
     this.score += 7;
   }
 

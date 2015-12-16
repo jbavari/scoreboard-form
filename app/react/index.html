@@ -3,10 +3,33 @@
   <head>
     <meta charset="utf-8">
     <title>Scoreboard React Input Form</title>
-    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
   </head>
   <body>
-    <div id="content"></div>
-    <script type="text/javascript" src="scripts/bundle.dev.js"></script>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+     </div>
+   </nav>
+    <div class="container" style="padding-top: 40px;">
+      <h1>Scoreboard</h1>
+      <div id="content"></div>
+    </div>
+    <script type="text/javascript" src="build/react.bundle.dev.js"></script>
   </body>
 </html>

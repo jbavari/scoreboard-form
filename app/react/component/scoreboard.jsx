@@ -31,13 +31,19 @@ export default class Scoreboard extends React.Component {
 
   render() {
     return (
-      <div className="scoreboard">
-        <form onSubmit={this.submit}>
-          Home Team: <Team home="true" update={this.updateTeam}></Team>
-          Visitor Team: <Team update={this.updateTeam}></Team>
-          <button type="submit">Submit</button>
-        </form>
-      </div>
+      <form onSubmit={this.submit}>
+        <div className="row">
+          <div className="col-md-6">
+            Home Team: <Team home="true" update={this.updateTeam}></Team>
+          </div>
+          <div className="col-md-6">
+            Visitor Team: <Team update={this.updateTeam}></Team>
+          </div>
+          <div className="row">
+            <button type="submit">Submit</button>
+          </div>
+        </div>
+      </form>
     )
   }
 }
