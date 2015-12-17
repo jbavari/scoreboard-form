@@ -9,9 +9,11 @@ export default class Team extends React.Component {
     this.setName = this.setName.bind(this);
     // this.state = {name: this.name, score: this.score};
     this.touchdown = this.touchdown.bind(this);
+    this.fieldGoal = this.fieldGoal.bind(this);
   }
 
-  fieldGoal() {
+  fieldGoal(e) {
+    e.preventDefault();
     this.score += 3;
     this.setState(this);
   }
@@ -29,6 +31,10 @@ export default class Team extends React.Component {
     this.props.update(this);
   }
 
+  toJson() {
+    return { name: this.name, score: this.score };
+  }
+
   render() {
     if (!this.name) {
       return (
@@ -42,7 +48,7 @@ export default class Team extends React.Component {
         <div>
           <span>{this.name} - Score: {this.score}</span>
           <button onClick={this.touchdown}>Touch Down</button>
-          <button onClick={() => this.fieldGoal()}>Field Goal</button>
+          <button onClick={this.fieldGoal}>Field Goal</button>
         </div>
       );
     }

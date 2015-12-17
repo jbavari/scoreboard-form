@@ -6,22 +6,21 @@ export default class Scoreboard extends React.Component {
     super(props);
     this.homeTeam = {};
     this.visitorTeam = {};
-    // this.state = { homeTeam: this.homeTeam, visitorTeam: this.visitorTeam };
     this.url = this.props.url;
     this.submit = this.submit.bind(this);
     this.updateTeam = this.updateTeam.bind(this);
+    this.submitted = false;
+    this.jsonPayload = null;
   }
 
   submit(event) {
-    console.log('submit');
     event.preventDefault();
-    console.log(this.homeTeam);
-    console.log(this.visitorTeam);
+    this.submitted = true;
+    this.setState(this);
+    this.jsonPayload = JSON.stringify({ homeTeam: this.homeTeam.toJson(), visitorTeam: this.visitorTeam.toJson()});
   }
 
   updateTeam(team) {
-    console.log('updateTeam', team);
-    console.log('updateTeam.props.home', team.props.home);
     if (team.props.home) {
       this.homeTeam = team;
     } else {
@@ -30,6 +29,7 @@ export default class Scoreboard extends React.Component {
   }
 
   render() {
+    var jsonInformation = this.submitted ? (<div>JSON payload: {this.jsonPayload}</div>) : null;
     return (
       <form onSubmit={this.submit}>
         <div className="row">
@@ -42,6 +42,7 @@ export default class Scoreboard extends React.Component {
           <div className="row">
             <button type="submit">Submit</button>
           </div>
+          {jsonInformation}
         </div>
       </form>
     )

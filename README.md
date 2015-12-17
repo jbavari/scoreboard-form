@@ -8,12 +8,20 @@ Click a button, and it will submit the form to the `scoreboard-api` project!
 
 # Getting started
 
-# Angular 2
+## Angular 2
 
 `npm run angular2` -> builds angular2 with webpack in `app/angular2` and serves index.html in that directory
+
+## React
+
 `npm run react` -> builds react with browserify in `app/react` and serves index.html in that directory
 
-`npm run all` -> builds angular2/react and places them in `www`, where you can access them both simultaneously in `http://localhost:3000/angular2` or `http://localhost:3000/react`.
+# Sass
+
+`npm run sass` - compiles bootstrap-sass into styles.css.
+
+
+OLD: 
 
 # File structure:
 
