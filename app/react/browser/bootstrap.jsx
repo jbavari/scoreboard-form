@@ -1,14 +1,6 @@
-// ReactDOM.render(
-//   <Scoreboard url="/api/scoreboard" pollInterval={2000} />,
-//   document.getElementById('content')
-// );
-// var ReactDOM = require('react-dom');
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Scoreboard from '../component/scoreboard.jsx';
-// var Scoreboard = require('../component/scoreboard.jsx');
-// var networkData = require("../common/data");
-// var TubeTracker = require("../component/tube-tracker.jsx");
 
 window.app = (function() {
   // var requiredFeatures = {
@@ -25,6 +17,5 @@ window.app = (function() {
   //   }
   // }
 
-  // var initialData = JSON.parse(document.getElementById("initial-data").innerHTML);
-  return ReactDOM.render(<Scoreboard/>, document.getElementById('content'));
+  return ReactDOM.render(<Scoreboard/>, document.getElementById('react-scoreboard'));
 })();
