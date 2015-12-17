@@ -8,11 +8,11 @@ import {Team} from '../team/team';
     <form (ngSubmit)="submitScore()">
       <div class="row">
         <div class="col-md-6">
-          <h3>Home Team</h3>
+          <h2>Home Team</h2>
           <team (updateTeam)="updateHomeTeam($event)" home="true"></team>
         </div>
         <div class="col-md-6">
-          <h3>Visitor Team</h3>
+          <h2>Visitor Team</h2>
           <team (updateTeam)="updateVisitorTeam($event)"></team>
         </div>
       </div>
@@ -28,7 +28,6 @@ import {Team} from '../team/team';
 export class Scoreboard {
   homeTeam: Team = new Team();
   visitorTeam: Team = new Team();
-
   submitted: boolean = false;
   jsonPayload: string = null;
 

@@ -34,16 +34,18 @@ export default class Scoreboard extends React.Component {
       <form onSubmit={this.submit}>
         <div className="row">
           <div className="col-md-6">
-            Home Team: <Team home="true" update={this.updateTeam}></Team>
+            <h2>Home Team</h2>
+            <Team home="true" update={this.updateTeam}></Team>
           </div>
           <div className="col-md-6">
-            Visitor Team: <Team update={this.updateTeam}></Team>
+            <h2>Visitor Team</h2>
+            <Team update={this.updateTeam}></Team>
           </div>
-          <div className="row">
-            <button type="submit">Submit</button>
-          </div>
-          {jsonInformation}
         </div>
+        <div className="row">
+          <button type="submit">Submit</button>
+        </div>
+        {jsonInformation}
       </form>
     )
   }

@@ -8,15 +8,15 @@ import {NgFor, NgIf, NgModel} from 'angular2/common';
   selector: 'team',
   template: `
     <div *ngIf="name == ''">
-      No team set
+      <h3>No team set</h3>
       <input type="text" [(ngModel)]="nameInput" placeholder="Enter a name"/>
       <button type="submit" (click)="setName()">Set name</button>
     </div>
     <div *ngIf="name != ''">
-      <h2>{{name}}</h2>
+      <h3>{{name}}</h3>
       <button (click)="touchdown($event)">Touchdown</button>
       <button (click)="fieldGoal($event)">Field Goal</button>
-      Score: {{score}}
+      <h4>Score: {{score}}</h4>
     </div>
     `
     }

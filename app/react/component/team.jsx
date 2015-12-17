@@ -39,6 +39,7 @@ export default class Team extends React.Component {
     if (!this.name) {
       return (
         <div>
+          <h3>No team set</h3>
           <input type="text" ref="teamName" placeholder="Enter a name.." value={this.props.name}/>
           <button onClick={this.setName}>Set Name</button>
         </div>
@@ -46,9 +47,10 @@ export default class Team extends React.Component {
     } else {
       return (
         <div>
-          <span>{this.name} - Score: {this.score}</span>
+          <h3>{this.name}</h3>
           <button onClick={this.touchdown}>Touch Down</button>
           <button onClick={this.fieldGoal}>Field Goal</button>
+          <h4>Score: {this.score}</h4>
         </div>
       );
     }
